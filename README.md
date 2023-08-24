@@ -10,6 +10,9 @@ This project provides a basic implementation of a queue, a linear data structure
 
 To use this queue implementation, you'll need to have Python installed on your machine.
 
+## Installation
+git clone https://github.com/Mohamed9555/queue-implementation.git
+
 ## Usage
 
 ```python
