@@ -39,16 +39,16 @@ class Queue:
             return True
         return False
 
-    def insert(self, new_value): # inque 
+    def enqueue(self, new_value):  # inque
         self.queue.append(new_value)
 
-    def pop(self):
+    def dequeue(self):
         if self.is_empty() == False:
             print(f"{self.queue[0]} popped")
-            self.queue.pop(0)
+            self.queue.dequeue(0)
         else:
-            print("Queue is Empty Nothing to pop")
-            print("None") # return None 
+            print("Queue is Empty Nothing to dequeue")
+            print("None")  # return None
 
     def show_queue(self):
         if self.is_empty() == False:
@@ -74,10 +74,9 @@ class UpgradedQueue(Queue):
         self._name = name
         self._size = size
         self._queue = [None] * size
-        self.__class__.all_queus[name] = self.queue 
-    
-    # def __str__(self): 
+        self.__class__.all_queus[name] = self.queue
 
+    # def __str__(self):
 
     @property
     def name(self):
@@ -95,7 +94,7 @@ class UpgradedQueue(Queue):
     def size(self, new_size):
         self._size = new_size
 
-    def insert(self, new_value):
+    def enqueue(self, new_value):
         if None in self.queue:
             none_index = self.queue.index(None)
             self.queue[none_index] = new_value
@@ -117,12 +116,11 @@ class UpgradedQueue(Queue):
             loaded_data = json.load(file)
             return loaded_data
 
+    # def __repr__(self):
 
-    # def __repr__(self): 
-
-    def pop(self):
+    def dequeue(self):
         if all(item is None for item in self.queue):
-            print("Queue is Empty Nothing to pop")
+            print("Queue is Empty Nothing to dequeue")
             print("None popped")
         else:
             self.queue[0] = None
@@ -133,6 +131,3 @@ class UpgradedQueue(Queue):
                 else:
                     # print(f"{self.queue[i]} popped")
                     self.queue[i] = self.queue[i + 1]
-
-
-
